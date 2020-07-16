@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A394F16724C07A3100199578 /* OAuthTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394F16624C07A3100199578 /* OAuthTestApp.swift */; };
+		A394F16924C07A3100199578 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394F16824C07A3100199578 /* ContentView.swift */; };
+		A394F16B24C07A3200199578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A394F16A24C07A3200199578 /* Assets.xcassets */; };
+		A394F16E24C07A3200199578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A394F16D24C07A3200199578 /* Preview Assets.xcassets */; };
+		A394F17924C07A3200199578 /* OAuthTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394F17824C07A3200199578 /* OAuthTestTests.swift */; };
+		A394F18424C07A3200199578 /* OAuthTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394F18324C07A3200199578 /* OAuthTestUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A394F17524C07A3200199578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A394F15B24C07A3100199578 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A394F16224C07A3100199578;
+			remoteInfo = OAuthTest;
+		};
+		A394F18024C07A3200199578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A394F15B24C07A3100199578 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A394F16224C07A3100199578;
+			remoteInfo = OAuthTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A394F16324C07A3100199578 /* OAuthTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OAuthTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A394F16624C07A3100199578 /* OAuthTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTestApp.swift; sourceTree = "<group>"; };
+		A394F16824C07A3100199578 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A394F16A24C07A3200199578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A394F16D24C07A3200199578 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A394F16F24C07A3200199578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A394F17424C07A3200199578 /* OAuthTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A394F17824C07A3200199578 /* OAuthTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTestTests.swift; sourceTree = "<group>"; };
+		A394F17A24C07A3200199578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A394F17F24C07A3200199578 /* OAuthTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A394F18324C07A3200199578 /* OAuthTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTestUITests.swift; sourceTree = "<group>"; };
+		A394F18524C07A3200199578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A394F16024C07A3100199578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A394F17124C07A3200199578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A394F17C24C07A3200199578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A394F15A24C07A3100199578 = {
+			isa = PBXGroup;
+			children = (
+				A394F16524C07A3100199578 /* OAuthTest */,
+				A394F17724C07A3200199578 /* OAuthTestTests */,
+				A394F18224C07A3200199578 /* OAuthTestUITests */,
+				A394F16424C07A3100199578 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A394F16424C07A3100199578 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A394F16324C07A3100199578 /* OAuthTest.app */,
+				A394F17424C07A3200199578 /* OAuthTestTests.xctest */,
+				A394F17F24C07A3200199578 /* OAuthTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A394F16524C07A3100199578 /* OAuthTest */ = {
+			isa = PBXGroup;
+			children = (
+				A394F16624C07A3100199578 /* OAuthTestApp.swift */,
+				A394F16824C07A3100199578 /* ContentView.swift */,
+				A394F16A24C07A3200199578 /* Assets.xcassets */,
+				A394F16F24C07A3200199578 /* Info.plist */,
+				A394F16C24C07A3200199578 /* Preview Content */,
+			);
+			path = OAuthTest;
+			sourceTree = "<group>";
+		};
+		A394F16C24C07A3200199578 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A394F16D24C07A3200199578 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A394F17724C07A3200199578 /* OAuthTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				A394F17824C07A3200199578 /* OAuthTestTests.swift */,
+				A394F17A24C07A3200199578 /* Info.plist */,
+			);
+			path = OAuthTestTests;
+			sourceTree = "<group>";
+		};
+		A394F18224C07A3200199578 /* OAuthTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A394F18324C07A3200199578 /* OAuthTestUITests.swift */,
+				A394F18524C07A3200199578 /* Info.plist */,
+			);
+			path = OAuthTestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A394F16224C07A3100199578 /* OAuthTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A394F18824C07A3200199578 /* Build configuration list for PBXNativeTarget "OAuthTest" */;
+			buildPhases = (
+				A394F15F24C07A3100199578 /* Sources */,
+				A394F16024C07A3100199578 /* Frameworks */,
+				A394F16124C07A3100199578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OAuthTest;
+			productName = OAuthTest;
+			productReference = A394F16324C07A3100199578 /* OAuthTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A394F17324C07A3200199578 /* OAuthTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A394F18B24C07A3200199578 /* Build configuration list for PBXNativeTarget "OAuthTestTests" */;
+			buildPhases = (
+				A394F17024C07A3200199578 /* Sources */,
+				A394F17124C07A3200199578 /* Frameworks */,
+				A394F17224C07A3200199578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A394F17624C07A3200199578 /* PBXTargetDependency */,
+			);
+			name = OAuthTestTests;
+			productName = OAuthTestTests;
+			productReference = A394F17424C07A3200199578 /* OAuthTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A394F17E24C07A3200199578 /* OAuthTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A394F18E24C07A3200199578 /* Build configuration list for PBXNativeTarget "OAuthTestUITests" */;
+			buildPhases = (
+				A394F17B24C07A3200199578 /* Sources */,
+				A394F17C24C07A3200199578 /* Frameworks */,
+				A394F17D24C07A3200199578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A394F18124C07A3200199578 /* PBXTargetDependency */,
+			);
+			name = OAuthTestUITests;
+			productName = OAuthTestUITests;
+			productReference = A394F17F24C07A3200199578 /* OAuthTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A394F15B24C07A3100199578 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					A394F16224C07A3100199578 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					A394F17324C07A3200199578 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = A394F16224C07A3100199578;
+					};
+					A394F17E24C07A3200199578 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = A394F16224C07A3100199578;
+					};
+				};
+			};
+			buildConfigurationList = A394F15E24C07A3100199578 /* Build configuration list for PBXProject "OAuthTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A394F15A24C07A3100199578;
+			productRefGroup = A394F16424C07A3100199578 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A394F16224C07A3100199578 /* OAuthTest */,
+				A394F17324C07A3200199578 /* OAuthTestTests */,
+				A394F17E24C07A3200199578 /* OAuthTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A394F16124C07A3100199578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A394F16E24C07A3200199578 /* Preview Assets.xcassets in Resources */,
+				A394F16B24C07A3200199578 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A394F17224C07A3200199578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A394F17D24C07A3200199578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A394F15F24C07A3100199578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A394F16924C07A3100199578 /* ContentView.swift in Sources */,
+				A394F16724C07A3100199578 /* OAuthTestApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A394F17024C07A3200199578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A394F17924C07A3200199578 /* OAuthTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A394F17B24C07A3200199578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A394F18424C07A3200199578 /* OAuthTestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A394F17624C07A3200199578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A394F16224C07A3100199578 /* OAuthTest */;
+			targetProxy = A394F17524C07A3200199578 /* PBXContainerItemProxy */;
+		};
+		A394F18124C07A3200199578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A394F16224C07A3100199578 /* OAuthTest */;
+			targetProxy = A394F18024C07A3200199578 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A394F18624C07A3200199578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A394F18724C07A3200199578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A394F18924C07A3200199578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OAuthTest/Preview Content\"";
+				DEVELOPMENT_TEAM = ZZVQ8B5T69;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OAuthTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.ljrsoftware.OAuthTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A394F18A24C07A3200199578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OAuthTest/Preview Content\"";
+				DEVELOPMENT_TEAM = ZZVQ8B5T69;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OAuthTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.ljrsoftware.OAuthTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A394F18C24C07A3200199578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZZVQ8B5T69;
+				INFOPLIST_FILE = OAuthTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.ljrsoftware.OAuthTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuthTest.app/OAuthTest";
+			};
+			name = Debug;
+		};
+		A394F18D24C07A3200199578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZZVQ8B5T69;
+				INFOPLIST_FILE = OAuthTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.ljrsoftware.OAuthTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuthTest.app/OAuthTest";
+			};
+			name = Release;
+		};
+		A394F18F24C07A3200199578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZZVQ8B5T69;
+				INFOPLIST_FILE = OAuthTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.ljrsoftware.OAuthTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OAuthTest;
+			};
+			name = Debug;
+		};
+		A394F19024C07A3200199578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZZVQ8B5T69;
+				INFOPLIST_FILE = OAuthTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.ljrsoftware.OAuthTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OAuthTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A394F15E24C07A3100199578 /* Build configuration list for PBXProject "OAuthTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A394F18624C07A3200199578 /* Debug */,
+				A394F18724C07A3200199578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A394F18824C07A3200199578 /* Build configuration list for PBXNativeTarget "OAuthTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A394F18924C07A3200199578 /* Debug */,
+				A394F18A24C07A3200199578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A394F18B24C07A3200199578 /* Build configuration list for PBXNativeTarget "OAuthTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A394F18C24C07A3200199578 /* Debug */,
+				A394F18D24C07A3200199578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A394F18E24C07A3200199578 /* Build configuration list for PBXNativeTarget "OAuthTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A394F18F24C07A3200199578 /* Debug */,
+				A394F19024C07A3200199578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A394F15B24C07A3100199578 /* Project object */;
+}

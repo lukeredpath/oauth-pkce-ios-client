@@ -87,9 +87,9 @@ extension AuthenticationProvider {
     )
 }
 
-class AuthenticationSession: ObservableObject {
+class AuthenticationSession: NSObject, ObservableObject, ASWebAuthenticationPresentationContextProviding {
     let provider: AuthenticationProvider
-    let presentationContext: PresentationContext
+    let presentationAnchor: ASPresentationAnchor
     var session: ASWebAuthenticationSession?
     var codeVerifier: String?
     var cancellable: AnyCancellable?
@@ -106,34 +106,27 @@ class AuthenticationSession: ObservableObject {
         case cancelled
     }
     
-    class PresentationContext: NSObject, ASWebAuthenticationPresentationContextProviding {
-        let presentationAnchor: ASPresentationAnchor
-        
-        init(presentationAnchor: ASPresentationAnchor) {
-            self.presentationAnchor = presentationAnchor
-        }
-        
-        func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-            return presentationAnchor
-        }
-    }
-    
     init(provider: AuthenticationProvider, presentationAnchor: ASPresentationAnchor) {
         self.provider = provider
-        self.presentationContext = PresentationContext(presentationAnchor: presentationAnchor)
+        self.presentationAnchor = presentationAnchor
+    }
+    
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return self.presentationAnchor
     }
     
     func start() {
         let codeVerifier = PKCE.generateCodeVerifier()
-        let codeChallenge = PKCE.generateCodeChallenge(from: codeVerifier)!
         
         self.session = ASWebAuthenticationSession(
-            url: self.provider.authorizeURL(codeChallenge: codeChallenge),
+            url: self.provider.authorizeURL(
+                codeChallenge: PKCE.generateCodeChallenge(from: codeVerifier)!
+            ),
             callbackURLScheme: "exampleauth",
             completionHandler: { [weak self] in
                 self?.handleCallback($0, $1)
             })
-        self.session!.presentationContextProvider = self.presentationContext
+        self.session!.presentationContextProvider = self
         self.session!.start()
         
         self.state = .authenticating
@@ -199,6 +192,7 @@ class AuthenticationSession: ObservableObject {
                     type: parameters["bearer"]
                 )
                 self.state = .authenticated(accessToken: token)
+                self.codeVerifier = nil
             }
 
     }

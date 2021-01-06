@@ -5,39 +5,34 @@
 //  Created by Luke Redpath on 16/07/2020.
 //
 
-import SwiftUI
 import AuthenticationServices
 import Combine
 import CryptoKit
+import SwiftUI
+
+extension Data {
+    // Returns a base64 encoded string, replacing reserved characters
+    // as per the PKCE spec https://tools.ietf.org/html/rfc7636#section-4.2
+    func pkce_base64EncodedString() -> String {
+        base64EncodedString()
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+            .trimmingCharacters(in: .whitespaces)
+    }
+}
 
 enum PKCE {
     static func generateCodeVerifier() -> String {
         var buffer = [UInt8](repeating: 0, count: 32)
         _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
-
-        return base64URLEncodedString(from: Data(buffer))
+        return Data(buffer).base64EncodedString()
     }
-    
+
     static func generateCodeChallenge(from string: String) -> String? {
         guard let data = string.data(using: .utf8) else { return nil }
-        
         let hashed = SHA256.hash(data: data)
-        let stringHash = hashed.map { String(format: "%02hhx", $0) }.joined()
-        
-        guard let hashedData = stringHash.data(using: .utf8) else {
-            return nil
-        }
-        
-        return base64URLEncodedString(from: hashedData)
-    }
-    
-    static func base64URLEncodedString(from data: Data) -> String {
-        return data
-            .base64EncodedString()
-            .replacingOccurrences(of: "+", with: "-")
-            .replacingOccurrences(of: "/", with: "_")
-            .replacingOccurrences(of: "=", with: "")
-            .trimmingCharacters(in: .whitespaces)
+        return Data(hashed).pkce_base64EncodedString()
     }
 }
 
@@ -46,28 +41,28 @@ struct AuthenticationProvider {
     private let accessTokenURL: URL
     private let clientId: String
     private let redirectUri: String
-    
+
     func authorizeURL(codeChallenge: String) -> URL {
         var components = URLComponents(string: authorizeBaseURL.absoluteString)!
-        
+
         components.queryItems = [
             URLQueryItem(name: "client_id", value: clientId),
             URLQueryItem(name: "code_challenge", value: codeChallenge),
-            URLQueryItem(name: "redirect_uri", value: redirectUri)
+            URLQueryItem(name: "redirect_uri", value: redirectUri),
         ]
-        
+
         return components.url!
     }
-    
+
     func accessTokenURL(code: String, codeVerifier: String) -> URL {
         var components = URLComponents(string: accessTokenURL.absoluteString)!
-        
+
         components.queryItems = [
             URLQueryItem(name: "client_id", value: clientId),
             URLQueryItem(name: "code_verifier", value: codeVerifier),
-            URLQueryItem(name: "code", value: code)
+            URLQueryItem(name: "code", value: code),
         ]
-        
+
         return components.url!
     }
 }
@@ -93,9 +88,9 @@ class AuthenticationSession: NSObject, ObservableObject, ASWebAuthenticationPres
     var session: ASWebAuthenticationSession?
     var codeVerifier: String?
     var cancellable: AnyCancellable?
-    
+
     @Published var state: State = .initialized
-    
+
     enum State {
         case initialized
         case authenticating
@@ -105,75 +100,75 @@ class AuthenticationSession: NSObject, ObservableObject, ASWebAuthenticationPres
         case failed
         case cancelled
     }
-    
+
     init(provider: AuthenticationProvider, presentationAnchor: ASPresentationAnchor) {
         self.provider = provider
         self.presentationAnchor = presentationAnchor
     }
-    
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return self.presentationAnchor
+
+    func presentationAnchor(for _: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return presentationAnchor
     }
-    
+
     func start() {
         let codeVerifier = PKCE.generateCodeVerifier()
-        
-        self.session = ASWebAuthenticationSession(
-            url: self.provider.authorizeURL(
+
+        session = ASWebAuthenticationSession(
+            url: provider.authorizeURL(
                 codeChallenge: PKCE.generateCodeChallenge(from: codeVerifier)!
             ),
             callbackURLScheme: "exampleauth",
             completionHandler: { [weak self] in
                 self?.handleCallback($0, $1)
-            })
-        self.session!.presentationContextProvider = self
-        self.session!.start()
-        
-        self.state = .authenticating
+            }
+        )
+        session!.presentationContextProvider = self
+        session!.start()
+
+        state = .authenticating
         self.codeVerifier = codeVerifier
     }
-    
+
     func cancel() {
-        self.session?.cancel()
-        self.state = .cancelled
+        session?.cancel()
+        state = .cancelled
     }
-    
+
     func reset() {
-        self.state = .initialized
+        state = .initialized
     }
-    
+
     private func handleCallback(_ callbackURL: URL?, _ error: Error?) {
         guard let callbackURL = callbackURL else {
-            self.state = .failed
+            state = .failed
             return
         }
-        
+
         if let error = error {
-            self.state = .error(error)
+            state = .error(error)
             return
-        }
-        else {
+        } else {
             let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
-            
+
             if let authCode = queryItems?.filter({ $0.name == "code" }).first?.value {
-                self.state = .accessCodeReceived(code: authCode)
-                self.obtainAccessTokenFromAccessCode(authCode)
+                state = .accessCodeReceived(code: authCode)
+                obtainAccessTokenFromAccessCode(authCode)
             } else {
-                self.state = .failed
+                state = .failed
             }
         }
     }
-    
+
     private func obtainAccessTokenFromAccessCode(_ code: String) {
-        var request = URLRequest(url: self.provider.accessTokenURL(code: code, codeVerifier: self.codeVerifier!))
+        var request = URLRequest(url: provider.accessTokenURL(code: code, codeVerifier: codeVerifier!))
         request.httpMethod = "POST"
-        
+
         cancellable = URLSession.shared
             .dataTaskPublisher(for: request)
             .receive(on: DispatchQueue.main)
             .sink { _ in
-                
-            } receiveValue: { (data, response) in
+
+            } receiveValue: { data, response in
                 guard let response = response as? HTTPURLResponse else {
                     self.state = .failed
                     return
@@ -194,23 +189,22 @@ class AuthenticationSession: NSObject, ObservableObject, ASWebAuthenticationPres
                 self.state = .authenticated(accessToken: token)
                 self.codeVerifier = nil
             }
-
     }
 }
 
 struct AuthenticationView: View {
     @ObservedObject var session: AuthenticationSession
-    
+
     init(presentationAnchor: ASPresentationAnchor) {
-        self.session = AuthenticationSession(provider: .github, presentationAnchor: presentationAnchor)
+        session = AuthenticationSession(provider: .github, presentationAnchor: presentationAnchor)
     }
-    
+
     var body: some View {
         currentStateView()
     }
-    
+
     private func currentStateView() -> AnyView {
-        switch self.session.state {
+        switch session.state {
         case .initialized:
             return AnyView(Button("Authenticate now") {
                 self.session.start()
@@ -232,7 +226,7 @@ struct AuthenticationView: View {
             return AnyView(authenticationEnded("Authentication cancelled"))
         }
     }
-    
+
     private func authenticationEnded(_ message: String) -> some View {
         VStack {
             Text(message)
@@ -245,7 +239,7 @@ struct AuthenticationView: View {
 
 struct ContentView: View {
     @State var currentWindow: UIWindow?
-    
+
     var body: some View {
         Group {
             if let window = currentWindow {
